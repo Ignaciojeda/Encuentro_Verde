@@ -1,0 +1,257 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pumalin</title>
+    <link rel="icon" type="IMG" href="{% static 'IMG/Logo.png'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'CSS/Style.css'%}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="{% static 'JS/Java.JS'%}"></script>
+</head>
+<body >
+    <header>
+        <h1>
+            Encuentro Verde
+        </h1>
+        <header class="HeaderI">
+            <div>
+                <h1 style="text-align: center;" id="PumalinT" >Parque Nacional Pumalín Douglas Tompkins </h1>
+                <nav class="navbar navbar-expand-lg bg-light">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#">Menú</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarScroll">
+                        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../">Inicio</a>
+                          </li>         
+                          <li class="nav-item">
+                            <a class="nav-link" href="../Contacto">Contáctenos</a>
+                          </li>
+                          <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                              Idioma
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item" href=""><img src="{% static 'IMG/Español.png'%}"></a></li>
+                              <li><a class="dropdown-item" onclick="InglesPumalin()"><img src="{% static 'IMG/Ingles.png'%}"></a></li>
+                              
+                            </ul>
+                          </div>
+                        </ul>
+      
+                      </div>
+                    </div>
+                  </nav>
+
+              </div>  
+        </header>
+    </header>
+    <body  >
+        <section style="background-image: url('../IMG/pumalin.jpg');background-size: cover;">
+        <div class="CuadroTexto">
+        <article>
+            <h3 class="Pumalin" id="PumalinDesc">
+                Adéntrate en la naturaleza virgen de Los Pilquenes y
+                 maravíllate con la diversidad de flora y fauna que habita en 
+                 este santuario natural. El Parque Nacional Pumalín Douglas Tompkins
+                  es mucho más que un destino turístico, es una experiencia única
+                   que te conectará con la belleza y la grandeza de la naturaleza.
+            </h3>
+        </article>
+        <article>
+            <h2 class="Pumalin" id="PumalinSub">Ven y descubre la magia. ¡Una aventura te espera en cada sendero!</h2>
+            <h3 class="Pumalin"><p id="PumalinSub2">¡Aprovecha esta oportunidad única para visitar este hermoso parque!¡Reserva tu aventura ahora!</p></h3>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                ¡Reservar ahora!
+              </button>       
+        </article>         
+    </div>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Alerta</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              No hay reservas disponibles :(
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+    
+        <section id="galeria">
+            <h2 ></h2>
+            <div id="carouselExampleControls" class="carousel slide carousel-background" data-bs-ride="carousel" >
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{% static 'IMG/cascadasescondidas.jpg'%}"
+                         class="d-block img-fluid" alt="Sendero de los enamorados">
+                        <div class="carousel-caption d-none d-md-block">
+                        <h5 style="color: rgb(21, 232, 21);">Sendero Cascadas Escondidas</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'IMG/volcanchaiten.jpg'%}"  class="d-block img-fluid" alt="Laguna verde">
+                        <div class="carousel-caption d-none d-md-block">
+                        <h5 style="color: rgb(1, 52, 13);">Sendero Volcan Chaitén</h5>
+                    </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'IMG/miradorlago.jpg'%}" class="d-block img-fluid" alt="Sendero los alerces">
+                        <div class="carousel-caption d-none d-md-block">
+                        <h5 style="color: rgb(34, 244, 34);">Sendero Lago Negro</h5>
+                    </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{% static 'IMG/mirador.jpg'%}" class="d-block img-fluid" alt="Mirador">
+                      <div class="carousel-caption d-none d-md-block">
+                      <h5 style="color: rgb(34, 244, 34);">Mirador </h5>
+                  </div>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                </a>
+            </div>
+        </section>
+        <section>
+            <div class="CuadroTexto">
+                <h1 style="color: black;" id="PumalinIti"> Itinerario</h1>
+                <table class="table" cellspacing="10" width="100%">
+                    <thead class="table-dark" width="50%">
+                      <tr >
+                        <th id="Dia">Día</th>
+                        <th id="Descripcion">Descripción</th>
+                        <th id="Actividades">Actividades</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-primary">
+                          <td>1</td>
+                          <td id="PumalinD1D">Llegada a Puerto Montt y traslado al parque</td>
+                          <td><ul>
+                            <li id="PumalinD1A1">Recepción y traslado desde el aeropuerto de Puerto Montt o tu hotel en la ciudad hasta el Parque Nacional Pumalín Douglas Tompkins.</li>
+                            <li id="PumalinD1A2">Alojamiento en confortable cabaña o lodge dentro del parque.</li>
+                            <li id="PumalinD1A3">Cena de bienvenida en restaurante local.</li>
+                        </ul></td>
+                        </tr>  
+                        <tr class="table-success">
+                            <td>2</td>
+                          <td id="PumalinD2D">Explorando el fiordo Cucao y la Isla Guafo</td>
+                          <td><ul>
+                            <li id="PumalinD2A1">Desayuno temprano en el lodge.</li>
+                            <li id="PumalinD2A2">Navegación por el fiordo Cucao, un fiordo rodeado de imponentes montañas y bosques milenarios.</li>
+                            <li id="PumalinD2A3">Visita a la Isla Guafo, una isla con una rica biodiversidad de flora y fauna.</li>
+                            <li id="PumalinD2A4">Almuerzo en picnic en la isla.</li>
+                            <li id="PumalinD2A5">Por la tarde, caminata por el sendero Alerce Costero, un bosque centenario de alerces.</li>
+                            <li id="PumalinD2A6">Cena y alojamiento en el lodge.</li>
+                        </ul></td>
+                        </tr>
+                        <tr class="table-danger">
+                            <td>3</td>
+                            <td id="PumalinD3D">Trekking al Lago Yelcho y Cascada La Virgen</td>
+                            <td><ul>
+                                <li id="PumalinD3A1">Desayuno temprano en el lodge.</li>
+                                <li id="PumalinD3A2">Excursión de trekking al Lago Yelcho, un lago glaciar de aguas cristalinas y paisajes de ensueño.</li>
+                                <li id="PumalinD3A3">Almuerzo en box lunch.</li>
+                                <li id="PumalinD3A4">Por la tarde, visita a la Cascada La Virgen, una imponente cascada que te dejará sin aliento.</li>
+                                <li id="PumalinD3A5">Cena y alojamiento en el lodge.</li>
+                          </ul></td>
+                        </tr>
+                        <tr class="table-info">
+                            <td>4</td>
+                            <td id="PumalinD4D">Despedida y traslado a Puerto Montt</td>
+                            <td><ul>
+                                <li id="PumalinD4A1">Desayuno en el lodge.</li>
+                                <li id="PumalinD4A2">Traslado de regreso a Puerto Montt.</li>
+                                <li id="PumalinD4A3">Tiempo libre para compras o actividades turísticas en la ciudad.</li>
+                                <li id="PumalinD4A4">Fin de nuestros servicios.</li>
+                          </ul></td>
+
+                        </tr>
+                        
+                    </tbody>
+                </table>   
+                <h3 id="Incluye">¿Qué incluye?</h3>
+                <ul>
+                    <li id="Incluye1">Traslados: Recepción y traslado desde el aeropuerto de Puerto Montt o tu hotel en la ciudad hasta el Parque Nacional Pumalín Douglas Tompkins. Traslado de regreso desde el parque a Puerto Montt.</li>
+                    <li id="Incluye2">Alojamiento: 3 noches de alojamiento en confortable cabaña o lodge dentro del parque.</li>
+                    <li id="Incluye3">Alimentación: Desayuno, almuerzo y cena durante todo el viaje (excepto el almuerzo del último día). Almuerzos en picnic durante las excursiones.</li>
+                    <li id="Incluye4">Excursiones: Navegación por el fiordo Cucao. Visita a la Isla Guafo. Caminata por el sendero Alerce Costero. Trekking al Lago Yelcho. Visita a la Cascada La Virgen.</li>
+                    <li id="Incluye5">Otros: Seguro de asistencia en viaje. Guía especializado durante todas las excursiones. Entradas al parque nacional. Equipo necesario para las excursiones (bastones de trekking, poncho de agua, etc.).</li>
+                </ul>
+                <h3 id="NoIncluye">¿Qué no incluye?</h3>
+                <ul>
+                    <li id="NoIncluye1">Pasajes aéreos: Los vuelos de ida y vuelta a Puerto Montt no están incluidos en el precio del paquete. Puedes reservar tus vuelos con la aerolínea de tu preferencia.</li>
+                    <li id="NoIncluye2">Bebidas alcohólicas: Las bebidas alcohólicas no están incluidas en las comidas ni en los picnics. Puedes comprarlas en el bar del lodge o en el restaurante local.</li>
+                    <li id="NoIncluye3">Propinas</li>
+                    <li id="NoIncluye4">Gastos personales: Los gastos personales como souvenirs, llamadas telefónicas, lavandería, etc., no están incluidos en el precio del paquete.</li>
+                    <li id="NoIncluye5">Seguro de viaje: Se recomienda contratar un seguro de viaje que cubra gastos médicos, cancelación de vuelos y pérdida de equipaje.</li>
+                </ul>
+                <h3 style="text-align: center;" id="Importante">Importante</h3>
+                <ul>
+                    <li id="Importante1">El itinerario del viaje puede estar sujeto a cambios debido a condiciones climáticas, disponibilidad de transporte o por otras razones imprevistas.</li>
+                    <li id="Importante2">Es importante llevar ropa y calzado adecuados para el clima y las actividades que se van a realizar.</li>
+                    <li id="Importante3">Se recomienda llevar protector solar, repelente de mosquitos, sombrero y lentes de sol.</li>
+                    <li id="Importante4">Es importante respetar las normas del parque nacional y ayudar a proteger el medio ambiente.</li>
+                </ul>
+                <h2 id="QuePermi">¿Qué está permitido y prohibido en el Parque Nacional Pumalín Douglas Tompkins?</h2>
+
+                <h3 id="Permitido">Permitido:</h3>
+                <ul>
+                    <li id="Permitido1">Realizar senderismo y trekking por los senderos señalizados.</li>
+                    <li id="Permitido2">Navegar en kayak o canoa por los fiordos y lagos (con permiso).</li>
+                    <li id="Permitido3">Pescar en los ríos y lagos (con permiso).</li>
+                    <li id="Permitido4">Observar la flora y fauna.</li>
+                    <li id="Permitido5">Acampar en zonas designadas.</li>
+                    <li id="Permitido6">Llevar comida y bebida suficiente para las excursiones.</li>
+                    <li id="Permitido7">Utilizar protector solar y repelente de mosquitos.</li>
+                    <li id="Permitido8">Llevar ropa y calzado adecuados para el clima y la actividad que se va a realizar.</li>
+                </ul>
+                <h3 id="Prohibido">Prohibido:</h3>
+                <ul>
+                    <li id="Prohibido1">Salir de los senderos señalizados.</li>
+                    <li id="Prohibido2">Hacer fogatas fuera de las áreas designadas.</li>
+                    <li id="Prohibido3">Causar daño a la flora o fauna del parque.</li>
+                    <li id="Prohibido4">Contaminar el agua o el suelo.</li>
+                    <li id="Prohibido5">Ingresar con vehículos motorizados a zonas no permitidas.</li>
+                    <li id="Prohibido6">Molestar a la fauna silvestre.</li>
+                    <li id="Prohibido7">Extraer flora o fauna del parque.</li>
+                    <li id="Prohibido8">Utilizar drones sin autorización previa.</li>
+                    <li id="Prohibido9">Realizar actividades ruidosas que puedan perturbar la tranquilidad del parque.</li>
+                    <li id="Prohibido10">Acampar en zonas no designadas.</li>
+                    <li id="Prohibido11">Dejar basura en el parque.</li>
+                </ul>
+                <div>
+                <h3 id="Recuerda">¡Recuerda!</h3>
+                <p style="text-align: center;" id="Recuerda1">Tu comportamiento responsable ayudará a proteger este valioso patrimonio natural para las generaciones futuras.</p>
+                </div>
+        
+
+
+            </div>
+        </section>
+    </body>
+    <footer>
+        <p>&copy; 2024 Parques Nacionales - Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

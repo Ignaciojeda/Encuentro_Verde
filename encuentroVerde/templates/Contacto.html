@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,800&family=Rubik:wght@300..900&display=swap" rel="stylesheet">
+    <title>Seccion contactanos</title>
+    <link rel="icon" type="IMG" href="{% static 'IMG/Logo.png'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'CSS/Style.css'%}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js'%}"></script>
+    <script src="{% static 'JS/Java.JS'%}"></script>
+</head>
+
+<body class="Contacto">
+  <header>
+    <h1>
+       
+    </h1>
+    <header class="HeaderI">
+      <div>
+        <h1 style="text-align: center;"  >Encuentro Verde </h1>
+        <h6 id="Descripcion"><center>Somos una página dedicada a la promoción y turismo sobre parques nacionales de Chile</center></h6>
+            <nav class="navbar navbar-expand-lg bg-light">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#">Menú</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                  <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="../">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="">Contáctenos</a>
+                    </li>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Idioma
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item" href="" ><img src="{% static 'IMG/Español.png'%}"></a></li>
+                              <li><a class="dropdown-item" onclick="Ingles()" ><img src="{% static 'IMG/Ingles.png'%}"></a></li>
+                              
+                            </ul>
+                          </div>
+                      </ul>
+                    </div>
+                  </div>
+                </nav>                    
+          </div>
+    
+        
+    </header>
+</header>
+</header>
+<body>
+    <section style="background-image: url(../IMG/parque.jpg); background-size: cover;">
+    <div class="container">
+        <h1 class="ColorCh1">Contacta con nosotros.</h1>
+        <h6>Sí tienes alguna consulta o un comentario, siéntete libre de contactarnos.</h6>
+        <div class="menu-contacto">
+            <div class="menu-izquierdo">
+                <h3>Ingresa tus datos</h3>
+                <form id="myForm">
+                  <div class="input-row">
+                    <div class="input-group">
+                      <label for="nombreUsuario"><h5>Nombre</h5></label>
+                      <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Ingresa tu nombre">
+                    </div>
+                    <div class="input-group">
+                      <label for="appaterno"><h5>Apellido</h5></label>
+                      <input type="text" id="appaterno" placeholder="Ingresa tu apellido">
+                    </div>
+                  </div>
+                  <div class="input-row">
+                    <div class="input-group">
+                      <label for="nroTelefono"><h5>Teléfono</h5></label>
+                      <input type="number" id="nroTelefono" placeholder="Ingresa tu numero teléfonico">
+                    </div>
+                    <div class="input-group">
+                      <label for="correoUsuario"><h5>Email</h5></label>
+                      <input type="email" id="correoUsuario" placeholder="Ingresa un correo">
+                    </div>
+                  </div>
+                  <label for="mensaje"><h5>Tu mensaje</h5></label>
+                  <textarea rows="4" id="mensaje" placeholder="Ingresa tu asunto aquí"></textarea>
+                  <button type="submit">Enviar datos</button>
+                </form>
+            </div>
+            <div class="menu-derecho">
+                <h2>Nuestros contactos.</h2>
+                <table>
+                    <tr>
+                        <td><h6>&#x2022; Correo</h6></td>
+                        <td><h6>fcalfun@gmail.com</h6></td>
+                    </tr>
+                    <tr>
+                        <td><h6>&#x2022; Teléfono</h6></td>
+                        <td><h6>+569 12345678</h6></td>
+                    </tr>
+                    <tr>
+                        <td><h6>&#x2022; Dirección</h6></td>
+                        <td><h6>Egaña777</h6></td>
+                    </tr>
+                </table>
+                <div id="map"></div>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+            </div>
+        </div>
+    </div>
+  </section>
+  </body>
+    <footer>
+        <p>&copy;2024 Parques Nacionales - Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
