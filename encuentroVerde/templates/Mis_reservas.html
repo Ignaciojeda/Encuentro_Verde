@@ -18,6 +18,11 @@
             *Correo: {{ f.correo_cliente }}<br>
             *Género: {{ f.id_genero.genero }}<br>
             *Ciudad: {{ f.ciudad_cliente }}<br>
+            <form action="{% url 'eliminar_reserva' f.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" onclick="return confirm('¿Estás seguro de que quieres eliminar esta reserva?');">Eliminar</button>
+            </form>
+            <hr>
         {% endfor %}
     {% else %}
         <p>No hay reservas disponibles.</p>

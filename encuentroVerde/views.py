@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
@@ -79,3 +79,8 @@ def reserva(request):
         generos = Genero.objects.all()
         context['genero'] = generos
         return render(request, 'Reserva.html', context)
+
+def eliminar_reserva(request, formulario_id):
+    formulario = get_object_or_404(Formulario, id=formulario_id)
+    formulario.delete()
+    return redirect('mis_reservas')
