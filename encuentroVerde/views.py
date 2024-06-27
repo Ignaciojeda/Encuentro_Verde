@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import Formulario, Genero
+from .forms import FormularioForm
 
 def index(request):
     context = {}
@@ -84,3 +85,15 @@ def eliminar_reserva(request, formulario_id):
     formulario = get_object_or_404(Formulario, id=formulario_id)
     formulario.delete()
     return redirect('mis_reservas')
+
+def modificar_reserva(request, formulario_id):
+    formulario = get_object_or_404(Formulario, id=formulario_id)
+    if request.method == 'POST':
+        form = FormularioForm(request.POST, instance=formulario)
+        if form.is_valid():
+            form.save()
+            return redirect('mis_reservas')
+    else:
+        form = FormularioForm(instance=formulario)
+    context = {'form': form, 'formulario': formulario}
+    return render(request, 'Modificar_reserva.html', context)

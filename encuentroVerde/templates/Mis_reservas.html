@@ -11,13 +11,14 @@
     <h1>Reservas</h1>
     {% if formulario %}
         {% for f in formulario %}
-            <p>{{ f }}</p> 
+            <p>{{ f }}</p>  <!-- Línea de depuración para imprimir todo el objeto -->
             <br>*Nombre: {{ f.nombre_cliente }}<br>
             *Apellido: {{ f.apellido_cliente }}<br>
             *Número: {{ f.numero_cliente }}<br>
             *Correo: {{ f.correo_cliente }}<br>
             *Género: {{ f.id_genero.genero }}<br>
             *Ciudad: {{ f.ciudad_cliente }}<br>
+            <a href="{% url 'modificar_reserva' f.id %}">Modificar</a>
             <form action="{% url 'eliminar_reserva' f.id %}" method="post" style="display:inline;">
                 {% csrf_token %}
                 <button type="submit" onclick="return confirm('¿Estás seguro de que quieres eliminar esta reserva?');">Eliminar</button>
