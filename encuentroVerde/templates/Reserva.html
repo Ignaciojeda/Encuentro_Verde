@@ -6,30 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Registro</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'CSS/Reserva.css'%}">
+    <link rel="stylesheet" href="{% static 'CSS/Formulario.css' %}">
 </head>
 <body>
-
-    <h1>Agregar nueva Reserva</h1>
-    <form action="{% url 'Reserva' %}" method="post">
-        {% csrf_token %}
-        <pre>Nombre:                        <input type="text" name="nombreCliente"></pre>
-        <pre>Apellido:                    <input type="text" name="apellidoCliente"></pre>
-        <pre>Numero:                  <input type="number" name="numeroCliente"></pre>
-        <pre>Correo:                      <input type="email" name="correoCliente"></pre>
-        <pre>Genero:                      <select name="genero">
-            {% for s in genero %}
-                <option value="{{ s.id_genero }}">{{ s.genero }}</option>
-            {% endfor %}
-        </select></pre>
-        <pre>Ciudad <input type="text" name="ciudadCliente"></pre>
-        <input type="submit" name="opcion" value="Agregar">
-    </form>
-
-    <div id="idMensaje">
-        {% if mensaje %}
-            {{ mensaje }}
-        {% endif %}
+    <div class="container">
+        <div class="CuadroTexto">
+            <h1>Agregar nueva Reserva</h1>
+            <form action="{% url 'Reserva' %}" method="post" class="form-group">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="nombreCliente">Nombre:</label>
+                    <input type="text" id="nombreCliente" name="nombreCliente" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="apellidoCliente">Apellido:</label>
+                    <input type="text" id="apellidoCliente" name="apellidoCliente" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="numeroCliente">Número:</label>
+                    <input type="number" id="numeroCliente" name="numeroCliente" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="correoCliente">Correo:</label>
+                    <input type="email" id="correoCliente" name="correoCliente" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="genero">Género:</label>
+                    <select id="genero" name="genero" class="form-control">
+                        {% for s in genero %}
+                            <option value="{{ s.id_genero }}">{{ s.genero }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ciudadCliente">Ciudad:</label>
+                    <input type="text" id="ciudadCliente" name="ciudadCliente" class="form-control">
+                </div>
+                <button type="submit" name="opcion" value="Agregar" class="btn btn-primary">Agregar</button>
+                <a href="{% url 'Index' %}" class="btn btn-secondary">Cancelar</a>
+            </form>
+            <div id="idMensaje">
+                {% if mensaje %}
+                    <div class="alert alert-info mt-3">{{ mensaje }}</div>
+                {% endif %}
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

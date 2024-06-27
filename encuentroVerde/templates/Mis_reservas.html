@@ -1,32 +1,54 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Reservas</title>
+    <link rel="stylesheet" href="{% static 'CSS/Crud.css'%}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Mis reservas</h1>
-    <a class="nav-link active" aria-current="page" href="../">Inicio</a>
-    <h1>Reservas</h1>
-    {% if formulario %}
-        {% for f in formulario %}
-            <p>{{ f }}</p>  <!-- Línea de depuración para imprimir todo el objeto -->
-            <br>*Nombre: {{ f.nombre_cliente }}<br>
-            *Apellido: {{ f.apellido_cliente }}<br>
-            *Número: {{ f.numero_cliente }}<br>
-            *Correo: {{ f.correo_cliente }}<br>
-            *Género: {{ f.id_genero.genero }}<br>
-            *Ciudad: {{ f.ciudad_cliente }}<br>
-            <a href="{% url 'modificar_reserva' f.id %}">Modificar</a>
-            <form action="{% url 'eliminar_reserva' f.id %}" method="post" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit" onclick="return confirm('¿Estás seguro de que quieres eliminar esta reserva?');">Eliminar</button>
-            </form>
-            <hr>
-        {% endfor %}
-    {% else %}
-        <p>No hay reservas disponibles.</p>
-    {% endif %}
+    <div class="container">
+        <h1>Mis reservas</h1>
+        <a class="nav-link active" aria-current="page" href="../">Inicio</a>
+        <h1>Reservas</h1>
+        {% if formulario %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Número</th>
+                        <th>Correo</th>
+                        <th>Género</th>
+                        <th>Ciudad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for f in formulario %}
+                        <tr>
+                            <td>{{ f.nombre_cliente }}</td>
+                            <td>{{ f.apellido_cliente }}</td>
+                            <td>{{ f.numero_cliente }}</td>
+                            <td>{{ f.correo_cliente }}</td>
+                            <td>{{ f.id_genero.genero }}</td>
+                            <td>{{ f.ciudad_cliente }}</td>
+                            <td class="action-buttons">
+                                <a href="{% url 'modificar_reserva' f.id %}" class="btn btn-primary btn-sm">Modificar</a>
+                                <form action="{% url 'eliminar_reserva' f.id %}" method="post" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar esta reserva?');">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No hay reservas disponibles.</p>
+        {% endif %}
+    </div>
 </body>
 </html>

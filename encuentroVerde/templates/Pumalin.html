@@ -41,11 +41,12 @@
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                               <li><a class="dropdown-item" href=""><img src="{% static 'IMG/Español.png'%}"></a></li>
-                              <li><a class="dropdown-item" onclick="InglesPumalin()"><img src="{% static 'IMG/Ingles.png'%}"></a></li>
-                              
+                              <li><a class="dropdown-item" onclick="InglesIndex()" ><img src="{% static 'IMG/Ingles.png'%}" ></a></li>
                             </ul>
                           </div>
-                        </ul>
+                          <li class="nav-item">
+                            <a class="nav-link" href="../Mis_reservas">Mis reservas</a>
+                          </li>
       
                       </div>
                     </div>
@@ -69,28 +70,11 @@
         <article>
             <h2 class="Pumalin" id="PumalinSub">Ven y descubre la magia. ¡Una aventura te espera en cada sendero!</h2>
             <h3 class="Pumalin"><p id="PumalinSub2">¡Aprovecha esta oportunidad única para visitar este hermoso parque!¡Reserva tu aventura ahora!</p></h3>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                ¡Reservar ahora!
-              </button>       
+            <button type="button" class="btn btn-primary" onclick="location.href='../Reserva'">
+              ¡Reservar ahora!
+          </button>   
         </article>         
     </div>
-    <div class="modal" id="myModal">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Alerta</h4>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-              No hay reservas disponibles :(
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-      
-          </div>
-        </div>
-      </div>
     
         <section id="galeria">
             <h2 ></h2>
