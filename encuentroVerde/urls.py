@@ -13,4 +13,4 @@ urlpatterns = [
     path('reserva/', views.reserva, name='Reserva'),
     path('Login/', auth_views.LoginView.as_view(), name='login'),  # Use built-in login view
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),  # Add logout view
-]
+] 

@@ -9,93 +9,32 @@
     <link rel="stylesheet" href="{% static 'CSS/Reserva.css'%}">
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header text-center">
-                        <h2>Datos de Reserva</h2>
-                    </div>
-                    <div class="card-body">
-                        <form id="extendedRegisterForm">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="first-name">Nombre</label>
-                                    <input type="text" class="form-control" id="first-name" name="first-name" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="last-name">Apellido</label>
-                                    <input type="text" class="form-control" id="last-name" name="last-name" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="phone">Número de Teléfono</label>
-                                    <input type="tel" class="form-control" id="phone" name="phone" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="email">Correo Electrónico</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="gender">Género</label>
-                                    <select id="gender" name="gender" class="form-control" required>
-                                        <option value="masculino">Masculino</option>
-                                        <option value="femenino">Femenino</option>
-                                        <option value="no-binario">No binario</option>
-                                        <option value="prefiero-no-mencionarlo">Prefiero no mencionarlo</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="city">Ciudad</label>
-                                    <input type="text" class="form-control" id="city" name="city" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>¿Tienes alguna condición física diferente?</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" id="condition-yes" name="condition" value="si" required>
-                                    <label class="form-check-label" for="condition-yes">Sí</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" id="condition-no" name="condition" value="no" required>
-                                    <label class="form-check-label" for="condition-no">No</label>
-                                </div>
-                            </div>
-                            <div class="form-group" id="condition-details" style="display: none;">
-                                <label for="condition-details-text">Por favor, especifica tu condición</label>
-                                <textarea class="form-control" id="condition-details-text" name="condition-details-text"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>¿Llevas algún perro guía o de apoyo emocional?</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" id="dog-yes" name="dog" value="si" required>
-                                    <label class="form-check-label" for="dog-yes">Sí</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" id="dog-no" name="dog" value="no" required>
-                                    <label class="form-check-label" for="dog-no">No</label>
-                                </div>
-                            </div>
-                            <div class="form-group" id="dog-details" style="display: none;">
-                                <label for="dog-details-text">Por favor, proporciona detalles sobre tu perro</label>
-                                <textarea class="form-control" id="dog-details-text" name="dog-details-text"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-success">Registrar</button>
-                        </form>
-                        <div id="successMessage" class="alert alert-success mt-3" style="display:none;">
-                            Registro completado exitosamente
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+    <h1>Agregar nueva Reserva</h1>
+    <form action="{% url 'Reserva' %}" method="post">
+        {% csrf_token %}
+        <pre>Nombre:                        <input type="text" name="nombreCliente"></pre>
+        <pre>Apellido:                    <input type="text" name="apellidoCliente"></pre>
+        <pre>Numero:                  <input type="number" name="numeroCliente"></pre>
+        <pre>Correo:                      <input type="email" name="correoCliente"></pre>
+        <pre>Genero:                      <select name="genero">
+            {% for s in genero %}
+                <option value="{{ s.id_genero }}">{{ s.genero }}</option>
+            {% endfor %}
+        </select></pre>
+        <pre>Ciudad <input type="text" name="ciudadCliente"></pre>
+        <input type="submit" name="opcion" value="Agregar">
+    </form>
+
+    <div id="idMensaje">
+        {% if mensaje %}
+            {{ mensaje }}
+        {% endif %}
     </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../JS/Java.JS"></script>
+    <script src="{% static 'JS/Java.JS' %}"></script>
 </body>
 </html>

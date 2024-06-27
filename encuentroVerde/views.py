@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
+from .models import Formulario,Genero
 
 # Create your views here.
 
@@ -42,14 +43,42 @@ def puyehue(request):
 
 def vicentepr(request):
     context={}
-    return render(request, 'VicentePR.html', context)
+    return render(request, 'VicentePR.html', context) 
 
 def registrar(request):
     context={}
     return render(request, 'Registrar.html', context)
 
 def reserva(request):
-    context={}
-    return render(request, 'Reserva.html', context)
+    if request.method != "POST":
+        generos = Genero.objects.all()
+        context = {'genero': generos}
+        return render(request, 'Reserva.html', context)
+    else:
+        nombre = request.POST.get("nombreCliente")
+        apellido = request.POST.get("apellidoCliente")
+        numero = request.POST.get("numeroCliente")
+        correo = request.POST.get("correoCliente")
+        genero_id = request.POST.get("genero")
+        ciudad = request.POST.get("ciudadCliente")
 
+        objetoGenero = Genero.objects.filter(id_genero=genero_id).first()
+        if objetoGenero:
+            obj = Formulario.objects.create(
+                nombre_cliente=nombre,
+                apellido_cliente=apellido,
+                numero_cliente=numero,
+                correo_cliente=correo,
+                id_genero=objetoGenero,
+                ciudad_cliente=ciudad,
+            )
+            obj.save()
+            context = {'mensaje': 'OK, datos guardados con éxito'}
+        else:
+            context = {'mensaje': 'Error, género no encontrado'}
 
+        generos = Genero.objects.all()
+        context['genero'] = generos
+        return render(request, 'Reserva.html', context)
+
+    
