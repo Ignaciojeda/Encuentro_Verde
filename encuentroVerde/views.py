@@ -1,52 +1,51 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from .models import Formulario,Genero
-
-# Create your views here.
-
+from .models import Formulario, Genero
 
 def index(request):
-    context={}
+    context = {}
     return render(request, 'Index.html', context)
 
 @login_required
-def Mis_reservas(request):
-    return render(request, 'Mis_reservas.html')
+def mis_reservas(request):
+    formularios = Formulario.objects.all()
+    for formulario in formularios:
+        print("Formulario:", formulario.nombre_cliente, formulario.apellido_cliente, formulario.correo_cliente, formulario.id_genero.genero, formulario.ciudad_cliente)  # Depuración
+    context = {'formulario': formularios}
+    return render(request, 'Mis_reservas.html', context)
 
-def login(request):
+def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('Mis_reservas.html')
+            return redirect('mis_reservas')
         else:
             messages.error(request, 'Usuario o contraseña incorrectos')
     return render(request, 'login.html')
 
-
-
 def contacto(request):
-    context={}
+    context = {}
     return render(request, 'Contacto.html', context)
 
 def pumalin(request):
-    context={}
+    context = {}
     return render(request, 'Pumalin.html', context)
 
 def puyehue(request):
-    context={}
+    context = {}
     return render(request, 'Puyehue.html', context)
 
 def vicentepr(request):
-    context={}
-    return render(request, 'VicentePR.html', context) 
+    context = {}
+    return render(request, 'VicentePR.html', context)
 
 def registrar(request):
-    context={}
+    context = {}
     return render(request, 'Registrar.html', context)
 
 def reserva(request):
@@ -80,5 +79,3 @@ def reserva(request):
         generos = Genero.objects.all()
         context['genero'] = generos
         return render(request, 'Reserva.html', context)
-
-    

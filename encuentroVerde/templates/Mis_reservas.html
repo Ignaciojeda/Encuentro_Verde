@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mis Reservas</title>
 </head>
 <body>
     <h1>Mis reservas</h1>
     <a class="nav-link active" aria-current="page" href="../">Inicio</a>
+    <h1>Reservas</h1>
+    {% if formulario %}
+        {% for f in formulario %}
+            <p>{{ f }}</p> 
+            <br>*Nombre: {{ f.nombre_cliente }}<br>
+            *Apellido: {{ f.apellido_cliente }}<br>
+            *Número: {{ f.numero_cliente }}<br>
+            *Correo: {{ f.correo_cliente }}<br>
+            *Género: {{ f.id_genero.genero }}<br>
+            *Ciudad: {{ f.ciudad_cliente }}<br>
+        {% endfor %}
+    {% else %}
+        <p>No hay reservas disponibles.</p>
+    {% endif %}
 </body>
 </html>

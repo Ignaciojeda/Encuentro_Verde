@@ -11,7 +11,7 @@ urlpatterns = [
     path('VicentePR/', vicentepr),
     path('Reserva/', reserva),
     path('Login/', login),
-    path('Mis_reservas/',Mis_reservas),
+    path('Mis_reservas/',mis_reservas),
     path('', include('encuentroVerde.urls')),
     path('accounts/', include('django.contrib.auth.urls')), 
 ]   
