@@ -1,11 +1,11 @@
 from django import forms
-from .models import Formulario, Genero,Parque
+from .models import Formulario, Genero, Parque
 from django.forms import ModelForm
 
 class FormularioForm(ModelForm):
     class Meta:
         model = Formulario
-        fields = '__all__'  
+        fields = '__all__'
         labels = {
             'nombre_cliente': 'Nombre',
             'apellido_cliente': 'Apellido',
@@ -13,7 +13,7 @@ class FormularioForm(ModelForm):
             'correo_cliente': 'Correo',
             'id_genero': 'Género',
             'ciudad_cliente': 'Ciudad',
-            'id_parque': 'Parque',
+            'id_parque': 'Parque'
         }
 
 class FormularioForms(forms.ModelForm):

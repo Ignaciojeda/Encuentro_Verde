@@ -23,6 +23,7 @@
                         <th>Correo</th>
                         <th>Género</th>
                         <th>Ciudad</th>
+                        <th>Parque</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -35,6 +36,7 @@
                             <td>{{ f.correo_cliente }}</td>
                             <td>{{ f.id_genero.genero }}</td>
                             <td>{{ f.ciudad_cliente }}</td>
+                            <td>{{ f.id_parque.Parque }}</td>
                             <td class="action-buttons">
                                 <a href="{% url 'modificar_reserva' f.id %}" class="btn btn-primary btn-sm">Modificar</a>
                                 <form action="{% url 'eliminar_reserva' f.id %}" method="post" style="display:inline;">

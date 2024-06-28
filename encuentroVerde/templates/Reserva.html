@@ -42,6 +42,14 @@
                     <label for="ciudadCliente">Ciudad:</label>
                     <input type="text" id="ciudadCliente" name="ciudadCliente" class="form-control">
                 </div>
+                <div class="form-group">
+                    <label for="parque">Parque:</label>
+                    <select id="parque" name="parque" class="form-control">
+                        {% for p in parques %}
+                            <option value="{{ p.id_parque }}">{{ p.Parque }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
                 <button type="submit" name="opcion" value="Agregar" class="btn btn-primary">Agregar</button>
                 <a href="{% url 'Index' %}" class="btn btn-secondary">Cancelar</a>
             </form>

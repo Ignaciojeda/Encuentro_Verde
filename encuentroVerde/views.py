@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from .models import Formulario, Genero
+from .models import Formulario, Genero, Parque
 from .forms import FormularioForm
 
 def index(request):
@@ -52,7 +52,8 @@ def registrar(request):
 def reserva(request):
     if request.method != "POST":
         generos = Genero.objects.all()
-        context = {'genero': generos}
+        parques = Parque.objects.all()
+        context = {'genero': generos, 'parques': parques}
         return render(request, 'Reserva.html', context)
     else:
         nombre = request.POST.get("nombreCliente")
@@ -60,10 +61,13 @@ def reserva(request):
         numero = request.POST.get("numeroCliente")
         correo = request.POST.get("correoCliente")
         genero_id = request.POST.get("genero")
+        parque_id = request.POST.get("parque")
         ciudad = request.POST.get("ciudadCliente")
 
         objetoGenero = Genero.objects.filter(id_genero=genero_id).first()
-        if objetoGenero:
+        objetoParque = Parque.objects.filter(id_parque=parque_id).first()
+
+        if objetoGenero and objetoParque:
             obj = Formulario.objects.create(
                 nombre_cliente=nombre,
                 apellido_cliente=apellido,
@@ -71,14 +75,17 @@ def reserva(request):
                 correo_cliente=correo,
                 id_genero=objetoGenero,
                 ciudad_cliente=ciudad,
+                id_parque=objetoParque
             )
             obj.save()
             context = {'mensaje': 'OK, datos guardados con éxito'}
         else:
-            context = {'mensaje': 'Error, género no encontrado'}
+            context = {'mensaje': 'Error, género o parque no encontrado'}
 
         generos = Genero.objects.all()
+        parques = Parque.objects.all()
         context['genero'] = generos
+        context['parques'] = parques
         return render(request, 'Reserva.html', context)
 
 def eliminar_reserva(request, formulario_id):
