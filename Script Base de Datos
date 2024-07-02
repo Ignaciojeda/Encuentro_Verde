@@ -1,0 +1,26 @@
+class Formulario(models.Model):
+    nombre_cliente  = models.CharField(max_length=20)
+    apellido_cliente = models.CharField(max_length=20)
+    numero_cliente = models.CharField(max_length=20)
+    correo_cliente = models.CharField(max_length=20)
+    id_genero          = models.ForeignKey('Genero',on_delete=models.CASCADE, db_column='idgenero')
+    ciudad_cliente = models.CharField(max_length=20)
+    id_parque = models.ForeignKey('Parque',on_delete=models.CASCADE,db_column='id_parque')
+
+    def __str__(self):
+        return str(self.nombre_cliente)
+
+
+class Genero(models.Model):
+    id_genero  = models.AutoField(db_column='idgenero', primary_key=True) 
+    genero     = models.CharField(max_length=20, blank=False, null=False)
+
+    def __str__(self):
+        return str(self.genero)
+    
+class Parque(models.Model):
+    id_parque  = models.AutoField(db_column='idparque', primary_key=True) 
+    Parque     = models.CharField(max_length=20, blank=False, null=False)
+
+    def __str__(self):
+        return str(self.Parque)
