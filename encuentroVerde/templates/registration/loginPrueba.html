@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="text-center">Panel de administracion</h1><br>
+    <a href="">
+    {% if usuario != None %}
+       <h4>Hola {{usuario}}</h4> 
+    {% else %}
+        login
+    {% endif %}  
+    </a>  
+</body>
+</html>

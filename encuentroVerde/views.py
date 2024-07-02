@@ -10,24 +10,20 @@ def index(request):
     return render(request, 'Index.html', context)
 
 @login_required
+def login(request):
+    request.session["usuario"]="GonzaloGallardo";
+    usuario=request.session["usuario"];
+    context={"usuario":usuario}
+    return render(request, 'login.html', context)
+
+@login_required
 def mis_reservas(request):
     formularios = Formulario.objects.all()
     for formulario in formularios:
         print("Formulario:", formulario.nombre_cliente, formulario.apellido_cliente, formulario.correo_cliente, formulario.id_genero.genero, formulario.ciudad_cliente)  # Depuración
     context = {'formulario': formularios}
-    return render(request, 'Mis_reservas.html', context)
+    return render(request, 'Mis_reservas.html', context)    
 
-def login_view(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('mis_reservas')
-        else:
-            messages.error(request, 'Usuario o contraseña incorrectos')
-    return render(request, 'login.html')
 
 def contacto(request):
     context = {}
@@ -104,3 +100,4 @@ def modificar_reserva(request, formulario_id):
         form = FormularioForm(instance=formulario)
     context = {'form': form, 'formulario': formulario}
     return render(request, 'Modificar_reserva.html', context)
+

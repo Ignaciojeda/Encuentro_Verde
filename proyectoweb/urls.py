@@ -10,8 +10,7 @@ urlpatterns = [
     path('Puyehue/', puyehue),
     path('VicentePR/', vicentepr),
     path('Reserva/', reserva),
-    path('Login/', login),
     path('Mis_reservas/',mis_reservas),
     path('', include('encuentroVerde.urls')),
-    path('accounts/', include('django.contrib.auth.urls')), 
+    path('login/', include('django.contrib.auth.urls')), 
 ]   

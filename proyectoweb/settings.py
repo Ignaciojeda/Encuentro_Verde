@@ -56,7 +56,7 @@ ROOT_URLCONF = 'proyectoweb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates",],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +68,12 @@ TEMPLATES = [
         },
     },
 ]
+
+LOGIN_URL="Login"
+
+LOGIN_REDIRECT_URL="Mis_reservas"
+
+LOGOUT_REDIRECT_URL="index"
 
 WSGI_APPLICATION = 'proyectoweb.wsgi.application'
 
